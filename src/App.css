@@ -1,0 +1,48 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.Movie-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.Movie-wrapper {
+  width: 500px;
+  background-color: rgba(255, 255, 255, 0.87);
+  color: black;
+}
+
+.Movie-search {
+  width: 400px;
+  height: 20px;
+  margin-bottom: 40px;
+  padding: 10px;
+}
+
+.Movie-title {
+  font-weight: bold;
+  font-size: large;
+}
+
+.Movie-date {
+  font-style: italic;
+}
+
+.Movie-rate {
+  font-weight: 600;
+  color: green;
+}
+
+.Query {
+  text-align: left;
+  margin-left: 130px;
+  margin-bottom: 20px;
+}
