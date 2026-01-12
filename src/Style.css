@@ -1,0 +1,26 @@
+h1 {
+    font-weight: 800;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-weight: 550;
+}
+
+.Movie-title {
+    font-weight: 600;
+    font-size: large;
+}
+
+.Movie-date {
+    font-weight: 300;
+    font-style: italic;
+}
+
+.Movie-rate {
+    font-weight: 500;
+    color: blue;
+}
