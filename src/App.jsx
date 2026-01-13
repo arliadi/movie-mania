@@ -19,7 +19,7 @@ const App = () => {
         </section>
         <section className='Movie-List container-xl'>
           <div className=" text-center mt-3 mb-3">
-            <p>{!searchQuery ? "Popular Movies" : `Showing results for "${searchQuery}"`}</p>
+            <p className='Showing'>{!searchQuery ? "Popular Movies" : `Showing results for "${searchQuery}"`}</p>
           </div>
           <div className='d-flex flex-wrap justify-content-center gap-3'>
             <MovieList search={searchQuery} />
