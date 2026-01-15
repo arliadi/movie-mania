@@ -1,5 +1,9 @@
-h1 {
-    font-weight: 800;
+html {
+  scroll-behavior: smooth;
+}
+
+#Popular-movies {
+  scroll-margin-top: 70px; 
 }
 
 a {

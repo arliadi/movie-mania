@@ -13,11 +13,15 @@ const MovieList = ({search, movieList}) => {
   
   //Load data pencarian
   useEffect(() => {
-    if (search) {
-      cariMovie(search).then((result) => {
-        setSearchResult(result);
-      });
-    }
+    //set supaya selesai ngetik dulu baru eksekusi
+    const delay = setTimeout(() => {
+      if (search) {
+        cariMovie(search).then((result) => {
+          setSearchResult(result);
+        });
+      }
+    }, 1000);
+    return () => clearTimeout(delay);
   },[search]);
 
   //Load data detail
