@@ -12,3 +12,8 @@ export const cariMovie = async(q) => {
     const cari = await axios.get(`${url}/search/movie?query=${q}&api_key=${apiKey}`);
     return cari.data.results;
 }
+
+export const getMovieDetail = async(id) => {
+    const detail = await axios.get(`${url}/movie/${id}?api_key=${apiKey}`);
+    return detail.data;
+}

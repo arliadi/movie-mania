@@ -1,0 +1,42 @@
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+#Popular-movies {
+  scroll-margin-top: 70px; 
+}
+
+.Slider {
+    margin-top: 100px;
+}
+
+.Showing {
+    font-weight: 550;
+}
+
+.Movie-title {
+    font-weight: 600;
+    font-size: large;
+}
+
+.Movie-date {
+    font-weight: 300;
+    font-style: italic;
+}
+
+.Movie-rate {
+    font-weight: 500;
+    color: blue;
+}
+
+.bordered {
+    border: 2px solid black;
+}
+
+.outline {
+    text-shadow: 2px 2px black;
+}
