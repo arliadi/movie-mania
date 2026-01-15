@@ -1,24 +1,16 @@
 import { useEffect, useState } from "react";
-import { getMovieList, cariMovie, getMovieDetail } from '../Api';
+import { cariMovie, getMovieDetail } from '../Api';
 import { useRef } from "react";
 import { Modal } from "bootstrap";
 
 
 
-const MovieList = ({search}) => {
-  const [movieList, setMovieList] = useState([]);
+const MovieList = ({search, movieList}) => {
   const [searchResult, setSearchResult] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [selectedMovieResult, setSelectedMovieResult] = useState([])
   const baseImgUrl = import.meta.env.VITE_BASEIMGURL;
   
-  //load data awal
-  useEffect(() => {
-    getMovieList().then((result) => {
-      setMovieList(result);
-    })
-  }, []);
-
   //Load data pencarian
   useEffect(() => {
     if (search) {

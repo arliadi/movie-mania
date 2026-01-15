@@ -24,3 +24,11 @@ a {
     font-weight: 500;
     color: blue;
 }
+
+.bordered {
+    border: 2px solid black;
+}
+
+.outline {
+    text-shadow: 2px 2px black;
+}
