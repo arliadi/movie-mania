@@ -2,12 +2,16 @@ html {
   scroll-behavior: smooth;
 }
 
+a {
+    text-decoration: none;
+}
+
 #Popular-movies {
   scroll-margin-top: 70px; 
 }
 
-a {
-    text-decoration: none;
+.Slider {
+    margin-top: 100px;
 }
 
 .Showing {

@@ -23,7 +23,7 @@ const App = () => {
 
   return (
       <div className="container-fluid">
-        <header className='Header mb-5'>
+        <header>
           <Navbar search={searchQuery} setSearch={handleSearch} />
         </header>
         <section className='Slider container-xl'>
