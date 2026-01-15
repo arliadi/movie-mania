@@ -1,81 +1,65 @@
-const backdropUrl = import.meta.env.VITE_BACKDROPURL;
+import { useMemo } from "react";
+
+const getShuffleMovies = (list) => {
+  if (!list || list.length === 0) return [];
+  return [...list].sort(() => Math.random() - 0.5).slice(0, 6);
+};
 
 const MovieSlide = ({ movieList }) => {
-  const backdrop = movieList.map((movie) => movie.backdrop_path);
-  const title = movieList.map((movie) => movie.title);
-  console.log(backdrop);
+  const randomMovies = useMemo(() => {
+    return getShuffleMovies(movieList);
+  }, [movieList]);
+
+  if (randomMovies.length === 0) return null;
+
   return (
-    <div
-      id="carouselExampleAutoplaying"
-      className="carousel slide carousel-fade"
-      data-bs-ride="carousel"
-    >
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <img
-            src={`${backdropUrl}${backdrop[0]}`}
-            className="d-block w-100"
-            alt={title[0]}
-          />
-          <div className="carousel-caption d-none d-md-block">
-            <h3 className="outline">{title[0]}</h3>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img
-            src={`${backdropUrl}${backdrop[1]}`}
-            className="d-block w-100"
-            alt={title[1]}
-          />
-          <div className="carousel-caption d-none d-md-block">
-            <h3 className="outline">{title[1]}</h3>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img
-            src={`${backdropUrl}${backdrop[2]}`}
-            className="d-block w-100"
-            alt={title[2]}
-          />
-          <div className="carousel-caption d-none d-md-block">
-            <h3 className="outline">{title[2]}</h3>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img
-            src={`${backdropUrl}${backdrop[3]}`}
-            className="d-block w-100"
-            alt={title[2]}
-          />
-          <div className="carousel-caption d-none d-md-block">
-            <h3 className="outline">{title[3]}</h3>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img
-            src={`${backdropUrl}${backdrop[4]}`}
-            className="d-block w-100"
-            alt={title[2]}
-          />
-          <div className="carousel-caption d-none d-md-block">
-            <h3 className="outline">{title[4]}</h3>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img
-            src={`${backdropUrl}${backdrop[5]}`}
-            className="d-block w-100"
-            alt={title[2]}
-          />
-          <div className="carousel-caption d-none d-md-block">
-            <h3 className="outline">{title[5]}</h3>
-          </div>
-        </div>
+    <div id="movieCarousel" className="carousel slide" data-bs-ride="carousel">
+      <div className="carousel-indicators">
+        {randomMovies.map((_, index) => (
+          <button
+            key={index}
+            type="button"
+            data-bs-target="#movieCarousel"
+            data-bs-slide-to={index}
+            className={index === 0 ? "active" : ""}
+            aria-current={index === 0 ? "true" : "false"}
+          ></button>
+        ))}
       </div>
+
+      <div className="carousel-inner">
+        {randomMovies.map((movie, index) => (
+          <div
+            className={`carousel-item ${index === 0 ? "active" : ""}`}
+            key={movie.id}
+          >
+            <img
+              src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+              className="d-block w-100"
+              alt={movie.title}
+              style={{ height: "80vh", objectFit: "cover" }} // Pakai 80vh biar lebih dramatis
+            />
+
+            <div className="carousel-caption d-none d-md-block">
+              <h1 className="carousel-title text-uppercase">{movie.title}</h1>
+              <p
+                style={{
+                  maxWidth: "600px",
+                  fontSize: "1.1rem",
+                  opacity: "0.9",
+                }}
+              >
+                {movie.overview?.substring(0, 150)}...
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
       <button
         className="carousel-control-prev"
         type="button"
-        data-bs-target="#carouselExampleAutoplaying"
+        data-bs-target="#movieCarousel"
         data-bs-slide="prev"
       >
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -84,7 +68,7 @@ const MovieSlide = ({ movieList }) => {
       <button
         className="carousel-control-next"
         type="button"
-        data-bs-target="#carouselExampleAutoplaying"
+        data-bs-target="#movieCarousel"
         data-bs-slide="next"
       >
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
