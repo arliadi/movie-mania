@@ -33,6 +33,12 @@ a {
   color: blue;
 }
 
+.footer {
+  height: 50px;
+  background-color: #2b3035;
+  color: #f2f3f3;
+}
+
 /* Membuat gradasi hitam di bawah gambar */
 .carousel-item::after {
   content: "";

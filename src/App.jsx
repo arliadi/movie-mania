@@ -25,21 +25,32 @@ const App = () => {
       <header>
         <Navbar search={searchQuery} setSearch={handleSearch} />
       </header>
-      <section className="Slider container-xl">
-        <MovieSlide movieList={movieList} />
-      </section>
+      {searchQuery ? (
+        <div className=" text-start p-1 mt-3">
+          <p className="Showing">`Showing results for "${searchQuery}"`</p>
+        </div>
+      ) : (
+        <section className="Slider container-xl">
+          <MovieSlide movieList={movieList} />
+        </section>
+      )}
       <section id="Popular-movies" className="Movie-List container-xl">
         <div className=" text-start p-1 mt-3">
           <p className="Showing">
-            {!searchQuery
-              ? "Popular Movies"
-              : `Showing results for "${searchQuery}"`}
+            {searchQuery
+              ? `Showing results for "${searchQuery}"`
+              : "Popular Movies"}
           </p>
         </div>
         <div className="d-flex flex-wrap justify-content-center gap-3">
           <MovieList search={searchQuery} movieList={movieList} />
         </div>
       </section>
+      <footer>
+        <div className="footer container-fluid d-flex justify-content-center align-items-center mt-3">
+          Movie Mania
+        </div>
+      </footer>
     </div>
   );
 };

@@ -130,7 +130,7 @@ const MovieList = ({ search, movieList }) => {
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
-                Tutup
+                Close
               </button>
             </div>
           </div>
