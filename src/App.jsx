@@ -47,8 +47,8 @@ const App = () => {
         </div>
       </section>
       <footer>
-        <div className="footer container-fluid d-flex justify-content-center align-items-center mt-3">
-          Movie Mania
+        <div className="footer container-fluid d-flex justify-content-center align-items-center mt-3 g-0">
+          Movie Mania🍿 Build with ❤️
         </div>
       </footer>
     </div>

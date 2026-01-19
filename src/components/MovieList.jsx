@@ -61,7 +61,7 @@ const MovieList = ({ search, movieList }) => {
             handleOpenModal(e);
           }}
         >
-          <div className="card" style={{ width: "15rem" }}>
+          <div className="card text-bg-dark" style={{ width: "15rem" }}>
             <img
               className="Movie-image"
               src={`${baseImgUrl}${movie.poster_path}`}
